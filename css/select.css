@@ -1,0 +1,70 @@
+.select-wrap {
+    display: inline-block;
+    position: relative;
+}
+.select-wrap .select-input {
+    width: 150px;
+    height: 26px;
+    padding: 0 20px 0 10px;
+    font-size: 14px;
+    border:1px solid #519fec;
+}
+.select-wrap.drop::after{
+    content: '';
+    position: absolute;
+    top:10px;
+    right: 4px;
+    border: 7px solid transparent;
+    border-top-color: #519fec;
+    z-index: 3;
+}
+.select-wrap.upward::after{
+    content: '';
+    position: absolute;
+    top:4px;
+    right: 4px;
+    border: 7px solid transparent;
+    border-bottom-color: #519fec;
+    z-index: 3;
+}
+.selectMenu1 {
+    position: absolute;
+    left: 0px;
+    top: 28px;
+    border: 1px solid #519fec;
+    width: 180px;
+    z-index: 4;
+    background: #fff;
+    display: none;
+}
+.select_level1, .select_level2 {
+    height: 30px;
+    line-height: 30px;
+    cursor: default;
+    padding-left: 6px;
+    font-size: 0.85em;
+}
+.selectMenu2 {
+    position: absolute;
+    top: 28px;
+    z-index: 5;
+    left: 181px;
+    width: 175px;
+    overflow-y: hidden;
+}
+.select_wrap2 {
+    width: 170px;
+    border: 1px solid #519fec;
+    z-index:5;
+    background: #fff;
+    display: none;
+    overflow-y: auto;
+    max-height: 500px;
+}
+/*多选二级下拉框*/
+.selectCheckBox .select_level1 input[type="checkbox"],.selectCheckBox .select_level2 input[type="checkbox"] {
+    width: 10px;
+    height: 10px;
+    vertical-align: middle;
+    margin-right: 5px;
+}

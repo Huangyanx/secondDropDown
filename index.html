@@ -1,0 +1,474 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>二级下拉菜单</title>
+    <link rel="stylesheet" href="css/select.css"></link>
+</head>
+<body>
+<div>
+    单选二级菜单
+    <div id="secondSelect" class="select-wrap drop"></div>
+                 <div class="select-wrap select1 "></div>
+                 <div class="select-wrap select2 "></div>
+    <br>
+    <br>
+    <br>
+</div>
+
+   多选二级菜单 <div id="selectCheckBox" class="select-wrap selectCheckBox drop"></div>
+    <div  class="select-wrap selectCheckBox selectCheckBox1 "></div>
+    <div  class="select-wrap selectCheckBox selectCheckBox2"></div>
+<script src="js/jquery-3.2.1.min.js"></script>
+<!--单选二级下拉框-->
+<script src="js/selectPlug.min.js"></script>
+<!--多选二级下拉框-->
+<script src="js/selectCheckBox.min.js"></script>
+<script>
+    (function() {
+        var data ={
+            亲子鉴定: {
+                10098: {
+                    chinese_name: "已出生-无法效- 1+1",
+                    project: "PAT-B-1+1",
+                    remark: "親子鑑定 --- 已出生 ( 沒有法效 ) 1+1",
+                    price: "5000",
+                    pregnant_weeks: ""
+                },
+                10099: {
+                    chinese_name: "已出生- 有法效- 1+1",
+                    project: "PAT-H-1+1",
+                    remark: "親子鑑定 --- 已出生 ( 有法效 ) 1+1",
+                    price: "7000",
+                    pregnant_weeks: ""
+                },
+                10117: {
+                    chinese_name: "亲子鉴定",
+                    project: "PAT-B",
+                    remark: "無創胎兒亲子鉴定（不限男/女胎）",
+                    price: "9800",
+                    pregnant_weeks: ""
+                },
+                10134: {
+                    chinese_name: "亲缘鉴定-已出生-无法效",
+                    project: "PAT-B-SAB",
+                    remark: "親緣鑑定（兄弟姐妹鑑定）-已出世（沒有法效）",
+                    price: "5000",
+                    pregnant_weeks: ""
+                },
+                10135: {
+                    chinese_name: "亲缘鉴定-已出生-有法效",
+                    project: "PAT-H-SAB",
+                    remark: "親緣鑑定（兄弟姐妹鑑定）-已出世（有法效）",
+                    price: "10000",
+                    pregnant_weeks: ""
+                },
+            },
+            优惠券项目: {
+                    10119: {
+                        chinese_name: "左流右肺 (注射式)",
+                        project: "LR_AC",
+                        remark: "左流右肺 (注射式)",
+                        price: "0",
+                        pregnant_weeks: ""
+                    },
+                    10120: {
+                        chinese_name: "左流右肺 (噴鼻式)",
+                        project: " LRFQ_AC",
+                        remark: "左流右肺 (噴鼻式)",
+                        price: "0",
+                        pregnant_weeks: ""
+                    },
+                    10121: {
+                        chinese_name: "左流右肺 (注射式)前台",
+                        project: "LR_PACK",
+                        remark: "左流右肺 (注射式)前台付款",
+                        price: "1400",
+                        pregnant_weeks: ""
+                    },
+                    10122: {
+                        chinese_name: "左流右肺 (鼻噴式)前台",
+                        project: "LRFQ_PACK",
+                        remark: "左流右肺 (鼻噴式)前台付款",
+                        price: "1600",
+                        pregnant_weeks: ""
+                    },
+                    10158: {
+                        chinese_name: "左流右肺999套餐-儿童",
+                        project: "LR_2019_CHILD",
+                        remark: "左流右肺 (注射式)999套餐-儿童",
+                        price: "999",
+                        pregnant_weeks: ""
+                    },
+                    10159: {
+                        chinese_name: "左流右肺999套餐-成人",
+                        project: "LR_2019_ADULT",
+                        remark: "左流右肺 (注射式)999套餐-成人",
+                        price: "999",
+                        pregnant_weeks: ""
+                    },
+
+                },
+            儿科疫苗: {
+                10023: {
+                    chinese_name: "儿童疫苗四痘针",
+                    project: "IPMMRV-1",
+                    remark: "兒童疫苗四痘针",
+                    price: "800",
+                    pregnant_weeks: ""
+                },
+                10024: {
+                    chinese_name: "儿童口服轮状疫苗",
+                    project: "IPRT-1",
+                    remark: "兒童口服轮状疫苗",
+                    price: "600",
+                    pregnant_weeks: ""
+                },
+                10025: {
+                    chinese_name: "乙型流感嗜血杆菌",
+                    project: "IPHIB-1",
+                    remark: "乙型流感嗜血杆菌疫苗",
+                    price: "400",
+                    pregnant_weeks: ""
+                },
+                10026: {
+                    chinese_name: "脑膜炎双球菌",
+                    project: "IPMCV-1",
+                    remark: "脑膜炎双球菌疫苗",
+                    price: "1000",
+                    pregnant_weeks: ""
+                },
+                10027: {
+                    chinese_name: "日本脑炎疫苗",
+                    project: "IPMOJEV-1",
+                    remark: "日本脑炎疫苗",
+                    price: "2000",
+                    pregnant_weeks: ""
+                },
+                10028: {chinese_name: "儿童乙肝针", project: "IPHEPB-1", remark: "兒童乙肝针", price: "200", pregnant_weeks: ""},
+                10029: {chinese_name: "儿童甲肝针", project: "IPHEPAS-1", remark: "兒童甲肝针", price: "500", pregnant_weeks: ""},
+                10030: {
+                    chinese_name: "季节性流感注射疫苗",
+                    project: "IPIN4-1",
+                    remark: "一針 兒童季節性流感注射疫苗",
+                    price: "300",
+                    pregnant_weeks: ""
+                },
+                10031: {
+                    chinese_name: "儿童13价肺炎球菌",
+                    project: "IPPRE13-1",
+                    remark: "兒童13价肺炎球菌",
+                    price: "1300",
+                    pregnant_weeks: ""
+                },
+                10032: {chinese_name: "6合1疫苗", project: "IPHEXA-1", remark: "6合1疫苗", price: "900", pregnant_weeks: ""},
+                10033: {
+                    chinese_name: "儿童5合1疫苗",
+                    project: "IPPENTA-1",
+                    remark: "儿童5合1疫苗",
+                    price: "900",
+                    pregnant_weeks: ""
+                },
+                10047: {
+                    chinese_name: "0-15岁成长基因检测",
+                    project: "GGC",
+                    remark: "兒童成长基因检测（0-15岁）",
+                    price: "12000",
+                    pregnant_weeks: ""
+                },
+                10077: {chinese_name: "麻疹疫苗", project: "IPMMR", remark: "兒童麻疹疫苗", price: "480", pregnant_weeks: ""},
+                10078: {
+                    chinese_name: "水痘疫苗",
+                    project: "IPVARIVAX-1",
+                    remark: "兒童水痘疫苗",
+                    price: "480",
+                    pregnant_weeks: ""
+                },
+                10095: {
+                    chinese_name: "儿童噴鼻式流感疫苗",
+                    project: "IPFLUMIST-1",
+                    remark: "一針 兒童噴鼻式流感疫苗FluMist",
+                    price: "550",
+                    pregnant_weeks: ""
+                },
+                10103: {
+                    chinese_name: "口服轮状病毒(2剂)",
+                    project: "IPRT-1-G",
+                    remark: "兒童口服輪狀病毒(2劑)",
+                    price: "900",
+                    pregnant_weeks: ""
+                },
+                10104: {
+                    chinese_name: "兒童乙肝針",
+                    project: "IPHEPB-1-G",
+                    remark: "兒童乙肝針",
+                    price: "200",
+                    pregnant_weeks: ""
+                },
+                10105: {
+                    chinese_name: "脑膜炎双球菌4价结合",
+                    project: "IPNXV-1",
+                    remark: "一針 腦膜炎雙球菌四價結合疫苗（Nimenrix）",
+                    price: "1000",
+                    pregnant_weeks: ""
+                },
+                10167: {
+                    chinese_name: "B型脑膜炎双球菌疫苗-儿童",
+                    project: "IPBEX-B",
+                    remark: "B型腦膜炎雙球菌疫苗-兒童",
+                    price: "1800",
+                    pregnant_weeks: ""
+                }
+            }
+        };
+        var data1={
+            "亲子鉴定":["已出生-无法效- 1+1", "已出生- 有法效- 1+1", "亲子鉴定", "亲缘鉴定-已出生-无法效", "亲缘鉴定-已出生-有法效"],
+            优惠券项目:[    "左流右肺 (注射式)", "左流右肺 (噴鼻式)", "左流右肺 (注射式)前台", "左流右肺 (鼻噴式)前台", "左流右肺999套餐-儿童", "左流右肺999套餐-成人"],
+            儿科疫苗:[    "儿童疫苗四痘针", "儿童口服轮状疫苗", "乙型流感嗜血杆菌", "脑膜炎双球菌", "儿童乙肝针", "儿童甲肝针","季节性流感注射疫苗","儿童13价肺炎球菌",
+              "6合1疫苗","儿童5合1疫苗" , "0-15岁成长基因检测","麻疹疫苗","水痘疫苗","儿童噴鼻式流感疫苗","口服轮状病毒(2剂)","兒童乙肝針","脑膜炎双球菌4价结合", "B型脑膜炎双球菌疫苗-儿童"]
+        }
+        var data2 ={
+            亲子鉴定: [
+                {
+                    chinese_name: "已出生-无法效- 1+1",
+                    project: "PAT-B-1+1",
+                    remark: "親子鑑定 --- 已出生 ( 沒有法效 ) 1+1",
+                    price: "5000",
+                    pregnant_weeks: ""
+                },
+                {
+                    chinese_name: "已出生- 有法效- 1+1",
+                    project: "PAT-H-1+1",
+                    remark: "親子鑑定 --- 已出生 ( 有法效 ) 1+1",
+                    price: "7000",
+                    pregnant_weeks: ""
+                },
+                {
+                    chinese_name: "亲子鉴定",
+                    project: "PAT-B",
+                    remark: "無創胎兒亲子鉴定（不限男/女胎）",
+                    price: "9800",
+                    pregnant_weeks: ""
+                },
+                {
+                    chinese_name: "亲缘鉴定-已出生-无法效",
+                    project: "PAT-B-SAB",
+                    remark: "親緣鑑定（兄弟姐妹鑑定）-已出世（沒有法效）",
+                    price: "5000",
+                    pregnant_weeks: ""
+                },
+                {
+                    chinese_name: "亲缘鉴定-已出生-有法效",
+                    project: "PAT-H-SAB",
+                    remark: "親緣鑑定（兄弟姐妹鑑定）-已出世（有法效）",
+                    price: "10000",
+                    pregnant_weeks: ""
+                }],
+            优惠券项目: [
+                {
+                    chinese_name: "左流右肺 (注射式)",
+                    project: "LR_AC",
+                    remark: "左流右肺 (注射式)",
+                    price: "0",
+                    pregnant_weeks: ""
+                },
+                {
+                    chinese_name: "左流右肺 (噴鼻式)",
+                    project: " LRFQ_AC",
+                    remark: "左流右肺 (噴鼻式)",
+                    price: "0",
+                    pregnant_weeks: ""
+                },
+                {
+                    chinese_name: "左流右肺 (注射式)前台",
+                    project: "LR_PACK",
+                    remark: "左流右肺 (注射式)前台付款",
+                    price: "1400",
+                    pregnant_weeks: ""
+                },
+                {
+                    chinese_name: "左流右肺 (鼻噴式)前台",
+                    project: "LRFQ_PACK",
+                    remark: "左流右肺 (鼻噴式)前台付款",
+                    price: "1600",
+                    pregnant_weeks: ""
+                },
+                {
+                    chinese_name: "左流右肺999套餐-儿童",
+                    project: "LR_2019_CHILD",
+                    remark: "左流右肺 (注射式)999套餐-儿童",
+                    price: "999",
+                    pregnant_weeks: ""
+                },
+                {
+                    chinese_name: "左流右肺999套餐-成人",
+                    project: "LR_2019_ADULT",
+                    remark: "左流右肺 (注射式)999套餐-成人",
+                    price: "999",
+                    pregnant_weeks: ""
+                }],
+            儿科疫苗: [
+              {
+                    chinese_name: "儿童疫苗四痘针",
+                    project: "IPMMRV-1",
+                    remark: "兒童疫苗四痘针",
+                    price: "800",
+                    pregnant_weeks: ""
+                },
+                {
+                    chinese_name: "儿童口服轮状疫苗",
+                    project: "IPRT-1",
+                    remark: "兒童口服轮状疫苗",
+                    price: "600",
+                    pregnant_weeks: ""
+                },
+                 {
+                    chinese_name: "乙型流感嗜血杆菌",
+                    project: "IPHIB-1",
+                    remark: "乙型流感嗜血杆菌疫苗",
+                    price: "400",
+                    pregnant_weeks: ""
+                },
+                 {
+                    chinese_name: "脑膜炎双球菌",
+                    project: "IPMCV-1",
+                    remark: "脑膜炎双球菌疫苗",
+                    price: "1000",
+                    pregnant_weeks: ""
+                },
+                 {
+                    chinese_name: "日本脑炎疫苗",
+                    project: "IPMOJEV-1",
+                    remark: "日本脑炎疫苗",
+                    price: "2000",
+                    pregnant_weeks: ""
+                },
+                {chinese_name: "儿童乙肝针", project: "IPHEPB-1", remark: "兒童乙肝针", price: "200", pregnant_weeks: ""},
+               {chinese_name: "儿童甲肝针", project: "IPHEPAS-1", remark: "兒童甲肝针", price: "500", pregnant_weeks: ""},
+              {
+                    chinese_name: "季节性流感注射疫苗",
+                    project: "IPIN4-1",
+                    remark: "一針 兒童季節性流感注射疫苗",
+                    price: "300",
+                    pregnant_weeks: ""
+                },
+               {
+                    chinese_name: "儿童13价肺炎球菌",
+                    project: "IPPRE13-1",
+                    remark: "兒童13价肺炎球菌",
+                    price: "1300",
+                    pregnant_weeks: ""
+                },
+              {chinese_name: "6合1疫苗", project: "IPHEXA-1", remark: "6合1疫苗", price: "900", pregnant_weeks: ""},
+               {
+                    chinese_name: "儿童5合1疫苗",
+                    project: "IPPENTA-1",
+                    remark: "儿童5合1疫苗",
+                    price: "900",
+                    pregnant_weeks: ""
+                },
+               {
+                    chinese_name: "0-15岁成长基因检测",
+                    project: "GGC",
+                    remark: "兒童成长基因检测（0-15岁）",
+                    price: "12000",
+                    pregnant_weeks: ""
+                },
+                {chinese_name: "麻疹疫苗", project: "IPMMR", remark: "兒童麻疹疫苗", price: "480", pregnant_weeks: ""},
+                {
+                    chinese_name: "水痘疫苗",
+                    project: "IPVARIVAX-1",
+                    remark: "兒童水痘疫苗",
+                    price: "480",
+                    pregnant_weeks: ""
+                },
+                {
+                    chinese_name: "儿童噴鼻式流感疫苗",
+                    project: "IPFLUMIST-1",
+                    remark: "一針 兒童噴鼻式流感疫苗FluMist",
+                    price: "550",
+                    pregnant_weeks: ""
+                },
+               {
+                    chinese_name: "口服轮状病毒(2剂)",
+                    project: "IPRT-1-G",
+                    remark: "兒童口服輪狀病毒(2劑)",
+                    price: "900",
+                    pregnant_weeks: ""
+                },
+                {
+                    chinese_name: "兒童乙肝針",
+                    project: "IPHEPB-1-G",
+                    remark: "兒童乙肝針",
+                    price: "200",
+                    pregnant_weeks: ""
+                },
+                {
+                    chinese_name: "脑膜炎双球菌4价结合",
+                    project: "IPNXV-1",
+                    remark: "一針 腦膜炎雙球菌四價結合疫苗（Nimenrix）",
+                    price: "1000",
+                    pregnant_weeks: ""
+                },
+                 {
+                    chinese_name: "B型脑膜炎双球菌疫苗-儿童",
+                    project: "IPBEX-B",
+                    remark: "B型腦膜炎雙球菌疫苗-兒童",
+                    price: "1800",
+                    pregnant_weeks: ""
+                }
+            ]
+        };
+
+        var project_select=new SelectPlug($('#secondSelect'),{
+            menuValue:data1,
+            callBack:changeProject
+        });
+        var project_select1=new SelectPlug($('.select1'),{
+            menuValue:data,
+            valName:'project',
+            valPos:1,
+            titleName:'project',
+            callBack:changeProject
+        });
+        var project_select2=new SelectPlug($('.select2'),{
+            menuValue:data2,
+            valName:'chinese_name',
+            valPos:'0',
+            showName:'project',
+            callBack:changeProject
+        });
+        //预约项目选择，对应备注 价格等改变
+        function changeProject(val,obj,first_name) {
+            console.log(val,obj,first_name)
+        }
+        //多选
+        var project_select_checkBox=new SelectCheckBox($('#selectCheckBox'),{
+            menuValue:data1,
+            callBack:changeValue
+        });
+        var project_select_checkBox1=new SelectCheckBox($('.selectCheckBox1'),{
+            menuValue:data,
+            showName:'chinese_name',
+            titleName:'project',
+            callBack:changeValue
+        });
+        var project_select_checkBox2=new SelectCheckBox($('.selectCheckBox2'),{
+            menuValue:data2,
+            checkAllTips:'全部项目',
+            showName:'project',
+            titleName:'chinese_name',
+            callBack:changeValue
+        });
+        // val：选中的值 obj：select二维菜单对象，即最外层对象，click_obj：点击的对象 all：是全选
+
+        function changeValue(val,obj,click_obj,all) {
+            console.log(val,obj,click_obj,all);
+
+        }
+
+
+    })()
+</script>
+</body>
+</html>
