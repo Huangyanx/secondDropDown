@@ -1,17 +1,17 @@
-#二级下拉框
-##使用
+# 二级下拉框
+## 使用
 1、所需文件及具体用法
->所需文件及顺序：
+> 所需文件及顺序：
 依赖jQuery，引入样式select.css及js单选下拉框selectPlug.min.js或多选下拉框selectCheckBox.min.js
->>生成二级下拉框：
+>> 生成二级下拉框：
 创建一个带类.select-wrap的标签，在script内 new或调用 SelectPlug({menuValue:data),即生成一个单选二级下拉框
 
-##普通二级下拉框
+## 普通二级下拉框
 >点击下拉框，显示一级菜单，鼠标移到一级菜单，显示二级菜单，点击一级菜单，选中二级菜单的第一个值，点击二级菜单选中点中的值
 >>带有向上或向上箭头
 创建一个带类.select-wrap的标签时，再加类.drop，可实现显示、隐藏箭头
 
-##单选二级下拉框
+## 单选二级下拉框
 二级下拉菜单实现显示的值不同于获取的值，并且可以获取更多二级菜单的值，而不仅仅是一个值
 
 1.js文件SelectPlug.min.js，调用SelectPlug即可，具体参数如下
@@ -28,7 +28,7 @@
 
 
 
-##多选二级下拉菜单
+## 多选二级下拉菜单
   checkAll:Boolean, 默认 true  //初始化时是否全选
  *  hasInput:Boolean, 默认 true, //是否已创建下拉框（input输入框），默认创建
  *  inputTips:string, 默认 '请选择',//下拉框的提示语
