@@ -27,6 +27,10 @@
  * activeBgColor:string,默认：'#519fec'  选中样式（背景色）及鼠标移上去背景色,
  
  ![二级下拉框](http://www.huangyanx.top/Views/file/dir/2020-5-20_09_20/images/selectPlug.gif)
+ 
+ ![二级下拉框](http://www.huangyanx.top/Views/file/dir/2020-5-20_09_20/images/selectPlug1.gif)
+ 
+ ![二级下拉框](http://www.huangyanx.top/Views/file/dir/2020-5-20_09_20/images/selectPlug2.gif)
 
 ## 多选二级下拉菜单
   checkAll:Boolean, 默认 true  //初始化时是否全选
@@ -41,3 +45,9 @@
  *  activeBgColor： 选中样式（背景色）及鼠标移上去背景色
  * callBack 选中值调用的回调函数
  * has_selected  默认选中的值  //val 选中的值，is_name:表示val是data-name的值
+ 
+ ![二级多选下拉框](http://www.huangyanx.top/Views/file/dir/2020-5-20_09_20/images/selectCheckBox1.gif)
+ 
+ ![二级多选下拉框](http://www.huangyanx.top/Views/file/dir/2020-5-20_09_20/images/selectCheckBox2.gif)
+ 
+ ![二级多选下拉框](http://www.huangyanx.top/Views/file/dir/2020-5-20_09_20/images/selectCheckBox3.gif)
