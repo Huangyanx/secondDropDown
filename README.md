@@ -26,7 +26,7 @@
  * has_selected(val,is_name)  默认选中的值  //val 选中的值，is_name:表示val是data-name的值
  * activeBgColor:string,默认：'#519fec'  选中样式（背景色）及鼠标移上去背景色,
  
- ![cmd-markdown-logo](http://www.huangyanx.top/Views/file/dir/2020-5-20_09_20/images/selectPlug.gif)
+ ![二级下拉框](http://www.huangyanx.top/Views/file/dir/2020-5-20_09_20/images/selectPlug.gif)
 
 ## 多选二级下拉菜单
   checkAll:Boolean, 默认 true  //初始化时是否全选
