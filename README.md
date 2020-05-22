@@ -25,8 +25,7 @@
  * callBack:(val,select_obj,element) //选中值调用的回调函数,val:选中的值，select_obj:函数对象本身，element，选中对应的标签
  * has_selected(val,is_name)  默认选中的值  //val 选中的值，is_name:表示val是data-name的值
  * activeBgColor:string,默认：'#519fec'  选中样式（背景色）及鼠标移上去背景色,
-
-
+[1]:http://www.huangyanx.top/Views/file/dir/2020-5-20_09_20/images/selectPlug.gif
 
 ## 多选二级下拉菜单
   checkAll:Boolean, 默认 true  //初始化时是否全选
